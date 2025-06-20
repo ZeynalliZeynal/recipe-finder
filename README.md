@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Home page
 
-![img.png](img.png)
+![img.png](public/img/img.png)
 
 When you open the app, you will see a form with a couple of options:
 
@@ -37,7 +37,7 @@ proceed.
 
 ### Recipes page
 
-![img_1.png](img_1.png)
+![img_1.png](public/img/img_1.png)
 
 On the recipes page, you will see a list of recipes you searched for.
 
@@ -48,6 +48,6 @@ You can click on a recipe to be redirected to the recipe page.
 
 ### Recipe page
 
-![img_2.png](img_2.png)
+![img_2.png](public/img/img_2.png)
 
 On the recipe page, you will see the recipe details. The recipe details are fetched from the api by `id`.
