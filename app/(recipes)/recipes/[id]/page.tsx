@@ -7,7 +7,7 @@ import RecipeInfoCard from '@/app/(recipes)/recipes/[id]/_components/recipe-info
 export async function generateStaticParams() {
   const recipeIds = await getRecipeIds()
 
-  return recipeIds.map((id) => ({ id: id.toString() }))
+  return recipeIds.map((id) => ({ id: +id }))
 }
 
 export default async function RecipePage({
@@ -17,7 +17,7 @@ export default async function RecipePage({
 }) {
   const { id } = params
 
-  const recipe = await getRecipe(+id)
+  const recipe = await getRecipe(id)
 
   return (
     <section>
