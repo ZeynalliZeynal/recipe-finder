@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/ZeynalliZeynal/recipe-finder/compare/v0.1.5...v0.1.6) (2025-06-20)
+
+
+### Features
+
+* add `getRecipeIds` method and static params generation for recipe pages ([0356c75](https://github.com/ZeynalliZeynal/recipe-finder/commit/0356c7572c1dff91b82f8023d445644366fdca85))
+
 ### [0.1.5](https://github.com/ZeynalliZeynal/recipe-finder/compare/v0.1.4...v0.1.5) (2025-06-20)
 
 ### [0.1.4](https://github.com/ZeynalliZeynal/recipe-finder/compare/v0.1.3...v0.1.4) (2025-06-20)
