@@ -1,13 +1,8 @@
 import { getRecipe } from "@/actions/recipes.action";
 import { ChefHat, Clock, Users } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import RecipeSidebar from "@/app/(recipes)/recipes/[id]/_sections/recipe-sidebar";
+import RecipeInfoCard from "@/app/(recipes)/recipes/[id]/_components/recipe-info-card";
 
 export default async function RecipePage({
   params,
@@ -17,7 +12,6 @@ export default async function RecipePage({
   const { id } = await params;
 
   const recipe = await getRecipe(id);
-  console.log(recipe);
 
   return (
     <section>
@@ -49,50 +43,13 @@ export default async function RecipePage({
                   alt={recipe.title}
                 />
               </div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    <h2>Instructions</h2>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{recipe.instructions}</CardDescription>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    <h2>Summary</h2>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription
-                    dangerouslySetInnerHTML={{
-                      __html: recipe.summary,
-                    }}
-                  />
-                </CardContent>
-              </Card>
+              <RecipeInfoCard
+                title="Instructions"
+                markup={recipe.instructions}
+              />
+              <RecipeInfoCard title="Summary" markup={recipe.summary} />
             </div>
-            <aside className="flex flex-col gap-4">
-              <Card className="sticky top-4">
-                <CardHeader>
-                  <CardTitle>
-                    <h2>Ingredients</h2>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="flex flex-col gap-3">
-                    {recipe.extendedIngredients.map((ingredient) => (
-                      <li className="grid grid-cols-[2rem_1fr] gap-2">
-                        <span>{ingredient.amount}</span>
-                        {ingredient.name}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </aside>
+            <RecipeSidebar recipe={recipe} />
           </div>
         </div>
       </div>

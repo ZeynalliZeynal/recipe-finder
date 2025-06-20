@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { mainRoutes } from "@/constants/routes";
 
-export default function SearchForm() {
+export default function SearchFormSection() {
   const form = useForm({
     defaultValues: {
       query: "",
@@ -45,6 +45,7 @@ export default function SearchForm() {
             placeholder="Enter a query"
             className="grow"
             {...form.register("query")}
+            aria-invalid={form.formState.errors.query ? "true" : "false"}
           />
           <Select
             value={form.watch("cuisine")}
@@ -78,7 +79,9 @@ export default function SearchForm() {
         />
       </div>
       <div className="h-px w-full bg-border" />
-      <Button disabled={!form.formState.isValid}>Next</Button>
+      <Button type="submit" disabled={!form.formState.isValid}>
+        Next
+      </Button>
     </Form>
   );
 }
