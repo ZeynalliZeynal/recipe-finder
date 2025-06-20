@@ -13,9 +13,9 @@ export async function generateStaticParams() {
 export default async function RecipePage({
   params,
 }: {
-  params: { id: number }
+  params: Promise<{ id: number }>
 }) {
-  const { id } = params
+  const { id } = await params
 
   const recipe = await getRecipe(id)
 
