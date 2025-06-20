@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/ZeynalliZeynal/recipe-finder/compare/v0.1.6...v0.1.7) (2025-06-20)
+
+
+### Bug Fixes
+
+* simplify type conversion and update `getRecipe` parameter ([2357edd](https://github.com/ZeynalliZeynal/recipe-finder/commit/2357eddf09f15d4d61ec1cd9c42bd30f5850412e))
+
 ### [0.1.6](https://github.com/ZeynalliZeynal/recipe-finder/compare/v0.1.5...v0.1.6) (2025-06-20)
 
 
