@@ -1,17 +1,23 @@
-import { getRecipe } from '@/actions/recipes.action'
+import { getRecipe, getRecipeIds } from '@/actions/recipes.action'
 import { ChefHat, Clock, Users } from 'lucide-react'
 import { OptimizedImage } from '@/components/ui/image'
 import RecipeSidebar from '@/app/(recipes)/recipes/[id]/_sections/recipe-sidebar'
 import RecipeInfoCard from '@/app/(recipes)/recipes/[id]/_components/recipe-info-card'
 
+export async function generateStaticParams() {
+  const recipeIds = await getRecipeIds()
+
+  return recipeIds.map((id) => ({ id: id.toString() }))
+}
+
 export default async function RecipePage({
   params,
 }: {
-  params: Promise<{ id: number }>
+  params: { id: number }
 }) {
-  const { id } = await params
+  const { id } = params
 
-  const recipe = await getRecipe(id)
+  const recipe = await getRecipe(+id)
 
   return (
     <section>
