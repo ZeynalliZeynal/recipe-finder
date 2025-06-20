@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -8,21 +8,21 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { SUPPORTED_CUISINES } from "@/constants/supported-cuisines";
-import { Button } from "@/components/ui/button";
-import Form from "next/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { mainRoutes } from "@/constants/routes";
+} from '@/components/ui/select'
+import { useForm } from 'react-hook-form'
+import { SUPPORTED_CUISINES } from '@/constants/supported-cuisines'
+import { Button } from '@/components/ui/button'
+import Form from 'next/form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { mainRoutes } from '@/constants/routes'
 
 export default function SearchFormSection() {
   const form = useForm({
     defaultValues: {
-      query: "",
-      cuisine: "",
-      maxReadyTime: "",
+      query: '',
+      cuisine: '',
+      maxReadyTime: '',
     },
     resolver: zodResolver(
       z
@@ -32,32 +32,35 @@ export default function SearchFormSection() {
           maxReadyTime: z.string(),
         })
         .refine((data) => data.query || data.cuisine || data.maxReadyTime, {
-          message: "At least one field must be filled",
+          message: 'At least one field must be filled',
         }),
     ),
-  });
+  })
 
   return (
-    <Form action={mainRoutes.recipes} className="flex flex-col gap-4">
+    <Form
+      action={mainRoutes.recipes}
+      className="p-6 rounded-2xl border-dashed border flex flex-col gap-4"
+    >
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-sm:flex-col">
           <Input
             placeholder="Enter a query"
             className="grow"
-            {...form.register("query")}
-            aria-invalid={form.formState.errors.query ? "true" : "false"}
+            {...form.register('query')}
+            aria-invalid={form.formState.errors.query ? 'true' : 'false'}
           />
           <Select
-            value={form.watch("cuisine")}
+            value={form.watch('cuisine')}
             onValueChange={(value) =>
-              form.setValue("cuisine", value, {
+              form.setValue('cuisine', value, {
                 shouldValidate: true,
                 shouldTouch: true,
               })
             }
             name="cuisine"
           >
-            <SelectTrigger className="shrink-0">
+            <SelectTrigger className="shrink-0 max-sm:w-full">
               <SelectValue placeholder="Select cuisine" />
             </SelectTrigger>
             <SelectContent>
@@ -75,7 +78,7 @@ export default function SearchFormSection() {
           placeholder="Max prep time in mins"
           type="number"
           min={1}
-          {...form.register("maxReadyTime")}
+          {...form.register('maxReadyTime')}
         />
       </div>
       <div className="h-px w-full bg-border" />
@@ -83,5 +86,5 @@ export default function SearchFormSection() {
         Next
       </Button>
     </Form>
-  );
+  )
 }

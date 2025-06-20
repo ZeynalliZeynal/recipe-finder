@@ -131,5 +131,5 @@
 }
 
 @utility container {
-  @apply mx-auto max-w-7xl px-10;
+  @apply mx-auto max-w-7xl px-10 max-lg:px-6 max-md:px-4;
 }

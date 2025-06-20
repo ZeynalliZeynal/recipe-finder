@@ -1,25 +1,27 @@
-import { getRecipe } from "@/actions/recipes.action";
-import { ChefHat, Clock, Users } from "lucide-react";
-import { OptimizedImage } from "@/components/ui/image";
-import RecipeSidebar from "@/app/(recipes)/recipes/[id]/_sections/recipe-sidebar";
-import RecipeInfoCard from "@/app/(recipes)/recipes/[id]/_components/recipe-info-card";
+import { getRecipe } from '@/actions/recipes.action'
+import { ChefHat, Clock, Users } from 'lucide-react'
+import { OptimizedImage } from '@/components/ui/image'
+import RecipeSidebar from '@/app/(recipes)/recipes/[id]/_sections/recipe-sidebar'
+import RecipeInfoCard from '@/app/(recipes)/recipes/[id]/_components/recipe-info-card'
 
 export default async function RecipePage({
   params,
 }: {
-  params: Promise<{ id: number }>;
+  params: Promise<{ id: number }>
 }) {
-  const { id } = await params;
+  const { id } = await params
 
-  const recipe = await getRecipe(id);
+  const recipe = await getRecipe(id)
 
   return (
     <section>
-      <div className="max-w-3xl p-6 mx-auto">
+      <div className="max-w-3xl px-6 mx-auto">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <h1 className="text-4xl font-semibold">{recipe.title}</h1>
-            <div className="flex items-center gap-3 text-neutral-600">
+            <h1 className="text-4xl font-semibold max-md:text-2xl">
+              {recipe.title}
+            </h1>
+            <div className="flex items-center gap-3 text-neutral-600 max-md:text-xs">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 <span>{recipe.readyInMinutes} minutes</span>
@@ -34,7 +36,7 @@ export default async function RecipePage({
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-[1fr_240px] gap-4">
+          <div className="grid grid-cols-[1fr_240px] gap-4 max-sm:grid-cols-1">
             <div className="flex flex-col gap-4">
               <div className="h-72 relative">
                 <OptimizedImage
@@ -54,5 +56,5 @@ export default async function RecipePage({
         </div>
       </div>
     </section>
-  );
+  )
 }
