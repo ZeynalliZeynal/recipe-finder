@@ -51,3 +51,8 @@ You can click on a recipe to be redirected to the recipe page.
 ![img_2.png](public/img/img_2.png)
 
 On the recipe page, you will see the recipe details. The recipe details are fetched from the api by `id`.
+
+### Additional information
+
+Run `npm run build` to build the app for production.
+Run `npm run lint` to check for errors or warnings.
