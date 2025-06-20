@@ -15,29 +15,30 @@ import { Button } from "@/components/ui/button";
 import Form from "next/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { mainRoutes } from "@/constants/routes";
 
 export default function SearchForm() {
   const form = useForm({
     defaultValues: {
       query: "",
       cuisine: "",
-      prepTime: "",
+      maxReadyTime: "",
     },
     resolver: zodResolver(
       z
         .object({
           query: z.string(),
           cuisine: z.string(),
-          prepTime: z.string(),
+          maxReadyTime: z.string(),
         })
-        .refine((data) => data.query || data.cuisine || data.prepTime, {
+        .refine((data) => data.query || data.cuisine || data.maxReadyTime, {
           message: "At least one field must be filled",
         }),
     ),
   });
 
   return (
-    <Form action="/search" className="flex flex-col gap-4">
+    <Form action={mainRoutes.recipes} className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
           <Input
@@ -73,7 +74,7 @@ export default function SearchForm() {
           placeholder="Max prep time in mins"
           type="number"
           min={1}
-          {...form.register("prepTime")}
+          {...form.register("maxReadyTime")}
         />
       </div>
       <div className="h-px w-full bg-border" />

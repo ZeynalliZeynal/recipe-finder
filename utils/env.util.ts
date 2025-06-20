@@ -6,4 +6,4 @@ export function getEnv(key: string, defaultValue?: string | number): string {
   return value;
 }
 
-export const spoonacular_key = getEnv("NEXT_SERVER_SPOONACULAR_API_KEY");
+export const api_key = getEnv("NEXT_SERVER_API_KEY");

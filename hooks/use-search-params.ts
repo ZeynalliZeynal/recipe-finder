@@ -14,7 +14,7 @@ type UseHandleSearchParamsProps = (
 ) => HandleSearchParamsProps;
 
 /**
- * Custom hook to handle individual search param updates.
+ * Custom hook to handle individual recipes param updates.
  */
 const useHandleSearchParams: UseHandleSearchParamsProps = (defaultValues) => {
   const searchParams = useSearchParams();
@@ -53,7 +53,7 @@ const useHandleSearchParams: UseHandleSearchParamsProps = (defaultValues) => {
 };
 
 /**
- * Hook to update multiple search parameters at once.
+ * Hook to update multiple recipes parameters at once.
  */
 const useHandleMultipleSearchParams = () => {
   const searchParams = useSearchParams();
@@ -75,7 +75,7 @@ const useHandleMultipleSearchParams = () => {
 };
 
 /**
- * Hook to reset (remove) one or more search parameters.
+ * Hook to reset (remove) one or more recipes parameters.
  */
 const useResetSearchParams = () => {
   const searchParams = useSearchParams();
